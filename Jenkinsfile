@@ -21,7 +21,7 @@ pipeline {
       steps {
         unstash 'ws'
         sh './mvnw -B -DskipTests=true clean compile package'
-        stash name: 'war', includes: 'target/**/*.war'
+        stash(name: 'war', includes: 'target/**/*.war')
       }
     }
     stage('Test Backend') {
