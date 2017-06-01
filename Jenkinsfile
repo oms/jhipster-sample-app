@@ -20,7 +20,6 @@ pipeline {
       }
       steps {
         unstash 'ws'
-        unstash 'war'
         sh './mvnw -B -DskipTests=true clean compile package'
         stash name: 'war', includes: 'target/**/*.war'
       }
